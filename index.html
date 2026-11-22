@@ -1,840 +1,314 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio Icaro Ferreira</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ícaro Ferreira | Analista de Dados</title>
+<meta name="description" content="Analista de dados em Piracicaba-SP: Python, SQL, Tableau, dashboards e automação.">
+<meta property="og:title" content="Ícaro Ferreira | Analista de Dados">
+<meta property="og:description" content="Python, SQL, Tableau, dashboards e automação.">
+<link rel="alternate" hreflang="pt-BR" href="https://icaroferreirafs.github.io/">
+<link rel="alternate" hreflang="en" href="https://icaroferreirafs.github.io/en/">
+<meta property="og:image" content="https://icaroferreirafs.github.io/assets/img/my-profile-img.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Raleway:wght@600;700&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* Cores: troque aqui para mudar o site todo */
+:root{--blue:#22b8f0;--blue-text:#4b2a99;--side:#0b0614;--ink:#272829;--muted:#5c6370;--light:#f6f4fc;--line:#e4e0f0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:#fff;color:var(--ink);font-family:Roboto,system-ui,sans-serif;line-height:1.65}
+a{color:var(--blue-text);text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+h1,h2,h3{font-family:Raleway,sans-serif;margin:0}
+p{margin:0 0 12px}
+ul{margin:8px 0;padding-left:20px}
+li{margin-bottom:6px}
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+/* Barra lateral */
+#sidebar{position:fixed;inset:0 auto 0 0;width:300px;background:var(--side);color:#fff;padding:32px 20px;display:flex;flex-direction:column;overflow-y:auto;z-index:20}
+.me{text-align:center}
+.me img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:6px solid #2a1a4d}
+.name{font:700 24px Raleway,sans-serif;margin:14px 0 12px}
+.social a{display:inline-flex;width:40px;height:40px;border-radius:50%;background:#2a1a4d;color:#fff;align-items:center;justify-content:center;font:700 14px Poppins,sans-serif}
+#sidebar nav{margin-top:28px}
+#sidebar nav a{display:flex;align-items:center;gap:12px;padding:14px 12px;color:#a8a9b4;font:500 15px Poppins,sans-serif}
+#sidebar nav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#sidebar nav a:hover,#sidebar nav a.active{color:#fff}
+#sidebar nav a:hover svg,#sidebar nav a.active svg{color:var(--blue)}
+main{margin-left:300px}
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+/* Hero */
+.hero{position:relative;min-height:100vh;background:radial-gradient(rgba(255,255,255,.07) 1.3px,transparent 1.3px) 0 0/60px 60px,linear-gradient(90deg,#08040f 0%,#1d0f3b 55%,#361c6b 100%);color:#fff;display:flex;align-items:center;overflow:hidden;padding:64px 56px}
+.poly{position:absolute;fill:none;stroke-width:1.2;pointer-events:none}
+.p1{left:0;top:0;width:240px;height:320px}
+.p2{right:0;bottom:0;width:340px;height:440px}
+.hero-in{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:40px 90px}
+.hero h1{font-size:clamp(2.6rem,6vw,4.2rem);line-height:1.1}
+.typed{font-size:1.5rem;margin-top:10px}
+.typed span{border-bottom:2px solid var(--blue)}
+.shapes{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.s1{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#22b8f0,#3b5bdb)}
+.s2{width:56px;height:56px;background:linear-gradient(135deg,#3b5bdb,#7b3fd0)}
+.s3{width:0;height:0;border-top:30px solid transparent;border-bottom:30px solid transparent;border-right:50px solid #22b8f0}
+.hero a.ct{display:flex;align-items:center;gap:10px;color:#fff;font-size:1.05rem;margin:4px 0}
+.hero a.ct svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6}
+.hero a.mail{font:700 1.5rem Roboto,sans-serif}
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+/* Seções */
+section.s{padding:72px 56px;scroll-margin-top:0}
+.alt{background:var(--light)}
+.box{max-width:1100px;margin:0 auto}
+.title{margin-bottom:36px}
+.title h2{font-size:2rem;position:relative;padding-bottom:18px}
+.title h2::after{content:"";position:absolute;left:0;bottom:0;width:50px;height:3px;background:var(--blue)}
+.lead{max-width:80ch}
+.about{display:flex;gap:48px;align-items:flex-start}
+.about img{width:400px;max-width:100%;aspect-ratio:1;object-fit:cover}
+.about h3{font-size:1.5rem;margin-bottom:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px 32px;list-style:none;padding:0;margin:18px 0 0}
+.facts b{color:var(--blue-text)}
+.counts{display:flex;gap:80px;margin-top:48px;flex-wrap:wrap}
+.counts strong{font:700 2.4rem Raleway,sans-serif;display:block;line-height:1}
+.counts span{color:var(--muted);font-size:.9rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px 48px}
+.skill div:first-child{display:flex;justify-content:space-between;font:500 .85rem Roboto;text-transform:uppercase}
+.bar{height:10px;background:#dde3e9;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--blue)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px}
+.cols h3{font-size:1.4rem;margin-bottom:16px}
+.tl{border-left:2px solid var(--blue);padding-left:22px;position:relative;margin-bottom:6px}
+.tl .it{position:relative;margin-bottom:20px}
+.tl .it::before{content:"";position:absolute;left:-31px;top:5px;width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid var(--blue)}
+.tl h4{margin:0;font:600 1rem Raleway,sans-serif;text-transform:uppercase;color:#45505b}
+.tl em{display:block;color:var(--muted)}
+.btn{display:inline-block;padding:12px 28px;border-radius:50px;font:500 1rem Poppins,sans-serif;background:var(--blue-text);color:#fff;border:0;cursor:pointer;min-height:44px}
+.btn.o{background:none;border:2px solid var(--blue-text);color:var(--blue-text)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.card{background:#fff;border:1px solid var(--line);padding:22px;display:block;color:var(--ink)}
+.card h3{font-size:1.15rem;margin:6px 0}
+.card p{font-size:.95rem}
+.shot{display:block;width:100%;height:130px;object-fit:cover;margin-bottom:14px}
+.thumb{height:130px;border:2px dashed #b6c2cf;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;margin-bottom:14px}
+.tag{color:var(--muted);font-size:.85rem}
+.svc{display:flex;gap:16px;align-items:flex-start;color:var(--ink)}
+.svc .ic{flex:none;width:54px;height:54px;border-radius:50%;background:var(--blue-text);display:flex;align-items:center;justify-content:center}
+.svc .ic svg{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:1.1rem}
+.svc p{font-size:.9rem;margin:4px 0 0}
+.contact{display:grid;grid-template-columns:1fr 1.4fr;gap:32px}
+.panel{background:#fff;padding:30px;box-shadow:0 0 24px rgba(30,40,60,.1)}
+.panel h3{font-size:1.1rem}
+.panel .row{margin-bottom:22px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fgrid .w{grid-column:1/-1}
+label{font-size:.95rem}
+input,textarea{display:block;width:100%;margin-top:6px;padding:10px 12px;border:1px solid #cfd8e1;font:inherit;border-radius:0}
+textarea{min-height:150px}
+.send{text-align:center;grid-column:1/-1}
+footer{text-align:center;padding:32px 20px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.top{position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;background:var(--blue-text);color:#fff;display:flex;align-items:center;justify-content:center;z-index:15}
+.top svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2.2}
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+@media (max-width:900px){
+  #sidebar{position:sticky;top:0;width:100%;padding:8px;flex-direction:row;align-items:center}
+  .me{display:none}
+  #sidebar nav{margin:0;display:flex;overflow-x:auto;width:100%}
+  #sidebar nav a{padding:10px;white-space:nowrap;font-size:14px}
+  #sidebar nav svg{display:none}
+  main{margin-left:0}
+  .hero{min-height:calc(100vh - 56px);padding:48px 24px}
+  .p2{display:none}
+  .p1{width:190px;height:250px;opacity:.5}
+  section.s{padding:56px 24px;scroll-margin-top:56px}
+  .about,.contact{display:block}
+  .about img{margin-bottom:24px}
+  .fgrid{grid-template-columns:1fr}
+  .contact .panel+.panel{margin-top:24px}
+}
+</style>
 </head>
+<body>
 
-<body class="index-page">
+<aside id="sidebar">
+  <div class="me">
+    <img src="assets/img/my-profile-img.jpg" alt="Foto de Ícaro Ferreira">
+    <p class="name">Ícaro Ferreira</p>
+    <div class="social"><a href="https://www.linkedin.com/in/icaroferreirafs" aria-label="LinkedIn de Ícaro Ferreira">in</a></div>
+  </div>
+  <nav>
+    <a href="#hero" class="active"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+    <a href="#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Sobre</a>
+    <a href="#resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5"/></svg>Currículo</a>
+    <a href="#portfolio"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="M3 18l6-5 4 3 3-2 5 4"/></svg>Portfólio</a>
+    <a href="#services"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/></svg>Serviços</a>
+    <a href="#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Contato</a>
+    <a href="en/" hreflang="en" lang="en"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>English</a>
+  </nav>
+</aside>
 
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
-
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+<main>
+<section id="hero" class="hero">
+  <svg class="poly p1" viewBox="0 0 300 480" aria-hidden="true"><path stroke="#22b8f0" d="M30 10L150 50L90 150Z M150 50L250 130L90 150 M90 150L40 270L250 130 M40 270L170 330L250 130 M40 270L10 420L170 330 M170 330L120 470L10 420"/><path stroke="#3b5bdb" d="M0 90L90 150 M150 50L220 0 M250 130L300 200 M170 330L290 380L250 130"/></svg>
+  <svg class="poly p2" viewBox="0 0 340 440" aria-hidden="true"><path stroke="#22b8f0" d="M340 40L220 110L300 200Z M220 110L150 230L300 200 M150 230L260 320L300 200 M150 230L120 400L260 320 M260 320L340 430"/><path stroke="#3b5bdb" d="M220 110L170 40 M150 230L60 300 M120 400L40 440 M300 200L340 260"/></svg>
+  <div class="hero-in">
+    <div>
+      <h1>Ícaro Ferreira</h1>
+      <p class="typed">Sou <span id="typed">Freelancer</span></p>
     </div>
-
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Ícaro Ferreira</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <!--<a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>-->
-      <a href="https://www.linkedin.com/in/icaroferreirafs" class="linkedin" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-linkedin"></i>
-      </a>
+    <div>
+      <div class="shapes" aria-hidden="true"><div class="s1"></div><div class="s2"></div><div class="s3"></div></div>
+      <a class="ct mail" href="mailto:icaroferreirafs@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>icaroferreirafs@gmail.com</a>
+      <a class="ct" href="https://wa.me/5519971192325"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.6z"/></svg>(19) 97119-2325</a>
     </div>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <!--<li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
-          </ul>-->
-        </li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
-
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Ícaro Ferreira</h2>
-        <p>I'm <span class="typed" data-typed-items="Data Analyst, Python Developer, Web Developer, Freelancer">Designer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p></p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 content">
-            <h2>Data Analyst &amp; Web Developer.</h2>
-            <p class="fst-italic py-3">
-              Data Analyst | SQL | Python | Tableau | Data Storytelling | Data Modeling | Data Warehousing | Data Engineering | Database Administration | Data Quality Management | Data Security & Privacy | Data Science
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>25</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Associate</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Piracicaba, SP</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.linkedin.com/in/icaroferreirafs</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>icaroferreirafs@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+55 19 97119-2325</span></li>
-                </ul>
-              </div>
-            </div>
-            <p class="py-3">
-              
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="21" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> <span></span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-6 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="49" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Finished Projects</strong> <span></span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-         <!-- <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p></p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row skills-content skills-animation">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>PYTHON</span> <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>HTML</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>CSS</span> <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>SQL</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>GOOGLE WORKSPACE</span> <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>MICROSOFT OFFICE</span> <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Skills Section -->
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>Experienced in data analysis using Python, SQL, and spreadsheets, with strong focus on data reliability and accuracy.
-        Skilled in creating DataFrames, visualizations, pivot tables, and dashboards with Tableau. Proficient in database
-        maintenance, backups, and delivering strategic reports for different audiences. Capable of developing web solutions with
-        Python, process automation, and API creation, combined with best coding practices, Git version control,
-        agile methodologies, and basic machine learning for predictive analysis.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Sumary</h3>
-
-            <div class="resume-item pb-0">
-              <h4>Ícaro Ferreira</h4>
-              <p><em>Freelance Data Analyst with expertise in Python, SQL, and spreadsheets, delivering dashboards, reports, and reliable
-              insights. Focused on data quality, automation, and turning information into actionable results.</em></p>
-              <ul>
-                <li>Piracicaba, SP</li>
-                <li>(19) 997119-2325</li>
-                <li>icaroferreirafs@gmail.com</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>ADVANCED ENGLISH COURSE</h4>
-              <h5>12/2017 - completed</h5>
-              <p><em>Red Balloon, Piracicaba, SP</em></p>
-              <!--<p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>-->
-            </div><!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>FCE</h4>
-              <h5>01/2018</h5>
-              <p><em>Cambridge University Press & Assessment</em></p>
-              <!--<p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>-->
-            </div><!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>Google Data Analytics Professional Certificate</h4>
-              <h5>07/2026 - completed</h5>
-              <h4>Google Data Analysis with Python</h4>
-              <h5>08/2026 - completed</h5>
-              <h4>Google Advanced Data Analytics</h4>
-              <h5>09/2026 - ongoing</h5>
-              <p><em>Coursera</em></p>
-              <!--<p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>-->
-            </div><!-- End Resume Item -->
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            
-            <div class="resume-item">
-              <h4>Freelance Data Analyst</h4>
-              <h5>01/2021 – Present</h5>
-              <p><em>Various Companies | Piracicaba – SP | Hybrid</em></p>
-              <ul>
-                <li>Analysis of large data volumes using Python, SQL, and spreadsheets.</li>
-                <li>Data quality assurance ensuring reliability and accuracy.</li>
-                <li>Creation and manipulation of DataFrames.</li>
-                <li>Visualizations and dashboards with Python, SQL, and Tableau.</li>
-                <li>Database maintenance, updates, and data security.</li>
-                <li>Reports and insights for different audiences, including senior management.</li>
-                <li>Automation of processes and ETL with Python.</li>
-                <li>Web solutions with Flask/Django and API development.</li>
-                <li>Git/GitHub version control and agile methodologies.</li>
-                <li>Basic machine learning applied to predictive analysis.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Resume Section -->
-
-    <!-- Portfolio Section
-    <section id="portfolio" class="portfolio section light-background">
-
-      <!-- Section Title
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div><!-- End Section Title
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Product</li>
-            <li data-filter=".filter-branding">Branding</li>
-            <li data-filter=".filter-books">Books</li>
-          </ul><!-- End Portfolio Filters
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-1.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-2.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-2.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-3.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-3.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-3.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-3.jpg" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>I provide complete solutions in data analysis and Python development, combining automation, visualization, and database
-        management to support decision-making and optimize processes.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-graph-up"></i></div>
-            <div>
-              <h4 class="title"><a href="/service-analysis.html" class="stretched-link">Data Analysis</a></h4>
-              <p class="description">Exploration and processing of large datasets using Python, SQL, and spreadsheets.</p>
-            </div>
-          </div>
-          <!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-diagram-3"></i></div>
-            <div>
-              <h4 class="title"><a href="/service-visualization.html" class="stretched-link">Data Visualization</a></h4>
-              <p class="description">Interactive dashboards and charts with Python (Matplotlib, Seaborn) and Tableau.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-file-earmark-text"></i></div>
-            <div>
-              <h4 class="title"><a href="/service-quality.html" class="stretched-link">Data Quality & Reporting</a></h4>
-              <p class="description">Validation, cleaning, and strategic reporting for different audiences.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-database"></i></div>
-            <div>
-              <h4 class="title"><a href="/service-database.html" class="stretched-link">Database Management</a></h4>
-              <p class="description">Maintenance, updates, and security of relational databases.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-arrow-repeat"></i></div>
-            <div>
-              <h4 class="title"><a href="/service-automation.html" class="stretched-link">Automation with Python</a></h4>
-              <p class="description">Process automation, ETL pipelines, web scraping, and API integration.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-terminal"></i></div>
-            <div>
-              <h4 class="title"><a href="/service-development.html" class="stretched-link">Python Development</a></h4>
-              <p class="description">Custom scripts, tools, and lightweight web solutions to support teams and businesses.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
-
-      <!-- Section Title
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 1
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div><!-- End testimonial item
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div><!-- End testimonial item
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div><!-- End testimonial item
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div><!-- End testimonial item
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div><!-- End testimonial item
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p></p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-
-            <div class="info-wrap">
-              <!-- <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call Me</h3>
-                  <p>+55 19 97119-2325</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email Me</h3>
-                  <p>icaroferreirafs@gmail.com</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer position-relative light-background">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | <a href="https://bootstrapmade.com/tools/">DevTools</a>
+  </div>
+</section>
+
+<section id="about" class="s">
+  <div class="box">
+    <div class="title"><h2>Sobre</h2></div>
+    <div class="about">
+      <img src="assets/img/my-profile-img.jpg" alt="Ícaro Ferreira">
+      <div>
+        <h3>Analista de Dados &amp; Desenvolvedor Web.</h3>
+        <p class="lead">Analista de dados freelancer em Piracicaba-SP. Trabalho com Python, SQL e Tableau, com foco em qualidade dos dados, automação e relatórios claros. Estou concluindo a trilha de Analytics do Google e publicando meus projetos no GitHub e aqui no portfólio.</p>
+        <ul class="facts">
+          <li><b>Cidade:</b> Piracicaba, SP</li>
+          <li><b>E-mail:</b> icaroferreirafs@gmail.com</li>
+          <li><b>Telefone:</b> +55 19 97119-2325</li>
+          <li><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/icaroferreirafs">icaroferreirafs</a></li>
+          <li><b>Inglês:</b> FCE, Cambridge</li>
+        </ul>
       </div>
     </div>
+    <!-- Confirme se estes números são reais antes de publicar -->
+    <div class="counts">
+      <div><strong>21</strong><span>Clientes atendidos</span></div>
+      <div><strong>49</strong><span>Projetos concluídos</span></div>
+    </div>
+  </div>
+</section>
 
-  </footer>
+<section id="skills" class="s alt">
+  <div class="box">
+    <div class="title"><h2>Habilidades</h2></div>
+    <div class="skills">
+      <div class="skill"><div><span>Python</span><span>55%</span></div><div class="bar" role="progressbar" aria-label="Python" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55"><i style="width:55%"></i></div></div>
+      <div class="skill"><div><span>SQL</span><span>80%</span></div><div class="bar" role="progressbar" aria-label="SQL" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><i style="width:80%"></i></div></div>
+      <div class="skill"><div><span>HTML</span><span>90%</span></div><div class="bar" role="progressbar" aria-label="HTML" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"><i style="width:90%"></i></div></div>
+      <div class="skill"><div><span>Google Workspace</span><span>70%</span></div><div class="bar" role="progressbar" aria-label="Google Workspace" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70"><i style="width:70%"></i></div></div>
+      <div class="skill"><div><span>CSS</span><span>75%</span></div><div class="bar" role="progressbar" aria-label="CSS" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75"><i style="width:75%"></i></div></div>
+      <div class="skill"><div><span>Microsoft Office</span><span>70%</span></div><div class="bar" role="progressbar" aria-label="Microsoft Office" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70"><i style="width:70%"></i></div></div>
+    </div>
+  </div>
+</section>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<section id="resume" class="s">
+  <div class="box">
+    <div class="title"><h2>Currículo</h2></div>
+    <p class="lead">Experiência em análise de dados com Python, SQL e planilhas, com foco em confiabilidade e precisão. Criação de DataFrames, visualizações, tabelas dinâmicas e dashboards no Tableau. Manutenção e backup de bancos de dados e relatórios estratégicos para públicos diferentes. Desenvolvimento de soluções web com Python, automação de processos e criação de APIs, com boas práticas de código, Git, metodologias ágeis e machine learning básico para análises preditivas.</p>
+    <div class="cols" style="margin-top:36px">
+      <div>
+        <h3>Resumo e formação</h3>
+        <div class="tl">
+          <div class="it"><h4>Ícaro Ferreira</h4><em>Analista de dados freelancer com experiência em Python, SQL e planilhas, entregando dashboards, relatórios e análises confiáveis. Foco em qualidade dos dados, automação e resultados práticos.</em><p style="margin-top:8px">Piracicaba, SP<br>(19) 97119-2325<br>icaroferreirafs@gmail.com</p></div>
+          <div class="it"><h4>Advanced English Course</h4><b>12/2017, concluído</b><em>Red Balloon, Piracicaba, SP</em></div>
+          <div class="it"><h4>FCE</h4><b>01/2018</b><em>Cambridge University Press &amp; Assessment</em></div>
+          <div class="it"><h4>Google Data Analytics Professional Certificate</h4><b>07/2026, concluído</b><em>Coursera</em></div>
+          <div class="it"><h4>Google Data Analysis with Python</h4><b>08/2026, concluído</b><em>Coursera</em></div>
+          <div class="it"><h4>Google Advanced Data Analytics</h4><b>09/2026, em andamento</b><em>Coursera</em></div>
+        </div>
+      </div>
+      <div>
+        <h3>Experiência</h3>
+        <div class="tl">
+          <div class="it"><h4>Analista de Dados Freelancer</h4><b>01/2021 até hoje</b><em>Vários clientes, Piracicaba-SP, híbrido</em>
+            <ul>
+              <li>Análise de grandes volumes de dados com Python, SQL e planilhas</li>
+              <li>Garantia de qualidade, confiabilidade e precisão dos dados</li>
+              <li>Criação e manipulação de DataFrames</li>
+              <li>Visualizações e dashboards com Python, SQL e Tableau</li>
+              <li>Manutenção, atualização e segurança de bancos de dados</li>
+              <li>Relatórios e insights para vários públicos, incluindo a gerência</li>
+              <li>Automação de processos e ETL com Python</li>
+              <li>Soluções web com Flask/Django e criação de APIs</li>
+              <li>Git/GitHub e metodologias ágeis</li>
+              <li>Machine learning básico para análises preditivas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:12px"><a class="btn o" href="assets/docs/curriculo-icaro-ferreira.pdf" download>Baixar currículo (PDF)</a></p>
+  </div>
+</section>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+<section id="portfolio" class="s alt">
+  <div class="box">
+    <div class="title"><h2>Portfólio</h2></div>
+    <div class="grid">
+      <article class="card"><div class="thumb">[PRINT DO GRÁFICO]</div><span class="tag">Análise em Python</span><h3>[Nome do projeto 1]</h3><p>Pergunta: [o que você quis descobrir]. Resultado: [1 insight concreto].</p><p class="tag">Python, Pandas, Matplotlib</p><p><a href="#">Ver notebook</a> &nbsp; <a href="#">GitHub</a></p></article>
+      <article class="card"><div class="thumb">[PRINT DO DASHBOARD]</div><span class="tag">Dashboard</span><h3>[Nome do projeto 2]</h3><p>Pergunta: [indicador que importa]. Resultado: [o que o dashboard mostra].</p><p class="tag">Tableau, SQL</p><p><a href="#">Ver dashboard</a> &nbsp; <a href="#">GitHub</a></p></article>
+      <article class="card"><div class="thumb">[DIAGRAMA DO PIPELINE]</div><span class="tag">Automação / ETL</span><h3>[Nome do projeto 3]</h3><p>Problema: [tarefa manual]. Resultado: [tempo economizado].</p><p class="tag">Python, SQL, Flask</p><p><a href="#">Ver demo</a> &nbsp; <a href="#">GitHub</a></p></article>
+    </div>
+  </div>
+</section>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<section id="services" class="s">
+  <div class="box">
+    <div class="title"><h2>Serviços</h2></div>
+    <p class="lead" style="margin-bottom:32px">Soluções completas em análise de dados e desenvolvimento Python, combinando automação, visualização e gestão de bancos de dados para apoiar decisões e otimizar processos.</p>
+    <div class="grid">
+      <a class="svc" href="service-analysis.html"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l5-5 4 4 8-9"/></svg></span><span><h3>Análise de dados</h3><p>Exploração e tratamento de bases grandes com Python, SQL e planilhas.</p></span></a>
+      <a class="svc" href="service-visualization.html"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V10M12 20V4M19 20v-7"/></svg></span><span><h3>Visualização de dados</h3><p>Dashboards interativos e gráficos com Python (Matplotlib, Seaborn) e Tableau.</p></span></a>
+      <a class="svc" href="service-quality.html"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z"/><path d="M9 14l2 2 4-4"/></svg></span><span><h3>Qualidade e relatórios</h3><p>Validação, limpeza e relatórios estratégicos para cada público.</p></span></a>
+      <a class="svc" href="service-database.html"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg></span><span><h3>Bancos de dados</h3><p>Manutenção, atualização e segurança de bancos relacionais.</p></span></a>
+      <a class="svc" href="service-automation.html"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></span><span><h3>Automação com Python</h3><p>Processos, pipelines ETL, web scraping e integração com APIs.</p></span></a>
+      <a class="svc" href="service-development.html"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span><span><h3>Desenvolvimento Python</h3><p>Scripts, ferramentas e soluções web leves para equipes e negócios.</p></span></a>
+    </div>
+  </div>
+</section>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+<section id="contact" class="s alt">
+  <div class="box">
+    <div class="title"><h2>Contato</h2></div>
+    <div class="contact">
+      <div class="panel">
+        <div class="row"><h3>Ligue</h3><p><a href="tel:+5519971192325">+55 19 97119-2325</a></p></div>
+        <div class="row"><h3>E-mail</h3><p><a href="mailto:icaroferreirafs@gmail.com">icaroferreirafs@gmail.com</a></p></div>
+        <div class="row"><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/icaroferreirafs">linkedin.com/in/icaroferreirafs</a></p></div>
+      </div>
+      <!-- Troque SEU_ID pelo código do seu formulário em formspree.io -->
+      <form class="panel fgrid" action="https://formspree.io/f/SEU_ID" method="POST">
+        <label>Nome<input type="text" name="name" required></label>
+        <label>E-mail<input type="email" name="email" required></label>
+        <label class="w">Assunto<input type="text" name="subject" required></label>
+        <label class="w">Mensagem<textarea name="message" required></textarea></label>
+        <div class="send"><button class="btn" type="submit">Enviar mensagem</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
 
+<footer>© 2026 Ícaro Ferreira. Todos os direitos reservados.</footer>
+<a class="top" href="#hero" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#sidebar nav a[href^="#"]'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+  links.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s)io.observe(s)});
+  var el=document.getElementById('typed');
+  if(!el||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var words=['Freelancer','Analista de Dados','Desenvolvedor Python'],w=0,c=0,del=false;
+  function tick(){var t=words[w];c+=del?-1:1;el.textContent=t.slice(0,c);var d=del?45:90;
+    if(!del&&c===t.length){del=true;d=1400}else if(del&&c===0){del=false;w=(w+1)%words.length;d=300}
+    setTimeout(tick,d)}
+  tick();
+})();
+</script>
 </body>
-
 </html>
