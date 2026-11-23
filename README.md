@@ -31,4 +31,4 @@ assets/docs/        currículos em PDF (português e inglês)
 
 ## Contato
 
-Ícaro Ferreira | icaroferreirafs@gmail.com | https://www.linkedin.com/in/icaroferreirafs
+Ícaro Ferreira | icaroferreirafs@gmail.com | https://www.linkedin.com/in/icaroferreiraf
